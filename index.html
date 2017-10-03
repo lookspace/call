@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拨号</title>
+    <style>
+        h3,p {
+            color: grey;text-align:center;
+        }
+        div{margin-left:43%;margin-bottom:10px;}
+        a{text-decoration:none;color: darkorange;}
+    </style>
+</head>
+<body>
+<h3>3个号码随机显示,并可以拨出</h3>
+<p>描述: 3个号码随机显示,每次刷新页面,手机端点击号码则弹出提示,是否拨打号码,PC端点击时则弹出应用选择(有的浏览器没有反应,或被禁用了)</p>
+<div>
+    <a href="tel:10086">移动请拨打 10086</a>
+</div>
+<div>
+    <a href="tel:10010"  style="color:green;">联通请拨打 10010</a>
+</div>
+<div>
+    <a href="tel:10000"  style="color:darkgoldenrod;">电信请拨打 10000</a>
+</div>
+
+<div style="font-weight:bold;margin-top:40px;">
+    <p style="margin-left:-40px;">下面的号码每次刷新 会 随机显示</p>
+    <a href="" id="show"></a>
+</div>
+<script>
+window.onload = function () {
+    var nums = document.getElementsByTagName('a');
+    var show = document.getElementById('show');
+    var s = Math.floor(Math.random()*3);
+    for(var i=0; i<nums.length; i++){
+        if(s==0){
+            show.innerHTML = '移动请拨打 10086';
+            show.href = 'tel:10086';
+        }if(s==1){
+            show.innerHTML = '联通请拨打 10010';
+            show.href = 'tel:10010'
+        }if(s==2){
+            show.innerHTML = '电信请拨打 10000';
+            show.href = 'tel:10000';
+        }
+    }
+}
+</script>
+</body>
+</html>
